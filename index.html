@@ -28,10 +28,8 @@
     <div>
       <nav class="fixed z-10 w-full bg-[#111423]">
         <div class="container m-auto px-2 md:px-12 lg:px-7">
-          <div class="flex flex-wrap items-center py-3 gap-6 md:py-4 md:gap-0">
-            <div
-              class="w-full justify-between items-center px-6 flex lg:w-max md:px-0"
-            >
+          <div class="flex items-center py-3 gap-6 md:py-4 md:gap-0">
+            <div class="w-full justify-between items-center px-6 flex md:px-0">
               <a
                 href="http://nolimstudios.com"
                 target="_blank"
@@ -48,7 +46,7 @@
                 />
               </a>
               <a
-                class="p-2 bg-[#bfbaff] trxt-[#111423] rounded-md font-medium"
+                class="p-2 bg-[#bfbaff] text-[#111423] rounded-md font-medium"
                 href="https://wa.link/l6pj5k"
                 target="_blank"
                 >Contáctanos</a
@@ -121,18 +119,20 @@
       </div>
       <model-viewer
         src="./assets/3d/croissant_norweski.glb"
-        poster="./assets/posters/croissant.jpeg"
+        poster="./assets/identity/Logo-NolimStudios_Negativo"
         shadow-intensity="1"
         ar
         camera-controls
         touch-action="pan-y"
         alt="A 3D app"
       >
-        <button slot="ar-button" id="ar-button">Ver en tu espacio</button>
-
-        <div id="ar-prompt">
-          <img src="../../assets/hand.png" />
-        </div>
+        <button
+          slot="ar-button"
+          class="mb-8 text-[#111423] font-bold"
+          id="ar-button"
+        >
+          📲 Ver en tu espacio
+        </button>
 
         <button id="ar-failure">¡El AR no está funcionando!</button>
 
