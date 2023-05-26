@@ -1,7 +1,7 @@
 const modelViewer = document.querySelector("model-viewer");
 
 window.switchSrc = (element, name) => {
-  const base = "../assets/3d/" + name;
+  const base = "./assets/3d/" + name;
   modelViewer.src = base + ".glb";
   modelViewer.poster = base + ".jpeg";
   const slides = document.querySelectorAll(".slide");
