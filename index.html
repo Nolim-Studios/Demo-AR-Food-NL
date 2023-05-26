@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://tailus.io/blocks/hero-section"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Comida en AR - Nolim Studios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <nav class="fixed z-10 w-full bg-[#111423]">
+        <div class="container m-auto px-2 md:px-12 lg:px-7">
+          <div class="flex flex-wrap items-center py-3 gap-6 md:py-4 md:gap-0">
+            <div
+              class="w-full justify-between items-center px-6 flex lg:w-max md:px-0"
+            >
+              <a
+                href="http://nolimstudios.com"
+                target="_blank"
+                alt="Logo de Nolim Studios"
+                aria-label="logo"
+                class="flex space-x-2 items-center content-center"
+              >
+                <img
+                  src="./assets/identity/Logo_Transparente.png"
+                  class="w-12"
+                  alt="tailus logo"
+                  width="144"
+                  height="133"
+                />
+              </a>
+              <a
+                class="p-2 bg-[#bfbaff] trxt-[#111423] rounded-md font-medium"
+                href="https://wa.link/l6pj5k"
+                target="_blank"
+                >Contáctanos</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- TOAST -->
+      <div class="w-full justify-center items-center flex">
+        <div
+          id="toast-interactive"
+          class="w-full absolute z-[999] top-28 max-w-xs p-4 rounded-lg shadow bg-gray-800 text-gray-400 motion-safe:animate-pulse"
+          role="alert"
+        >
+          <div class="flex">
+            <div
+              class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg text-[#111423] bg-[#f3f8fd]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                />
+              </svg>
+            </div>
+            <div class="ml-3 text-sm font-normal">
+              <span
+                class="mb-1 text-sm font-semibold text-gray-900 dark:text-white"
+                >Nota:</span
+              >
+              <div class="text-sm font-normal">
+                Este es un ejemplo desarrollado por
+                <strong>Nolim Studios.</strong> <br />
+                <span class="text-xs">(Toca la X para cerrarme)</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+              data-dismiss-target="#toast-interactive"
+              aria-label="Close"
+            >
+              <span class="sr-only">Close</span>
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <model-viewer
+        src="./assets/3d/croissant_norweski.glb"
+        poster="./assets/posters/croissant.jpeg"
+        shadow-intensity="1"
+        ar
+        camera-controls
+        touch-action="pan-y"
+        alt="A 3D app"
+      >
+        <button slot="ar-button" id="ar-button">Ver en tu espacio</button>
+
+        <div id="ar-prompt">
+          <img src="../../assets/hand.png" />
+        </div>
+
+        <button id="ar-failure">¡El AR no está funcionando!</button>
+
+        <div class="slider m-1 mb-4 flex justify-center">
+          <div class="slides">
+            <button
+              class="slide selected bg-cover"
+              onclick="switchSrc(this, 'croissant_norweski')"
+              style="background-image: url('./assets/posters/croissant.jpeg')"
+            ></button
+            ><button
+              class="slide bg-cover"
+              onclick="switchSrc(this, 'burger')"
+              style="background-image: url('./assets/posters/burger.jpeg')"
+            ></button
+            ><button
+              class="slide bg-cover"
+              onclick="switchSrc(this, 'pizza')"
+              style="background-image: url('./assets/posters/pizza.jpeg')"
+            ></button>
+          </div>
+        </div>
+      </model-viewer>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
